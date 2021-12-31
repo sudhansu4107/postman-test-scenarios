@@ -1,0 +1,115 @@
+{
+	"info": {
+		"_postman_id": "0c71fd1e-d210-4dc2-82ec-97d78d57ce74",
+		"name": "Variables",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://reqres.in/api/users?page=2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"validate the status code\"]=responseCode.code==200;\r",
+							"\r",
+							"let value=pm.variables.get(\"url\");\r",
+							"console.log(value)\r",
+							"pm.variables.set(\"name\",\"https://reqres.in/api/users?page=2\")\r",
+							"let value2=pm.variables.get(\"name\")\r",
+							"console.log(pm.variables.get(\"name\"))\r",
+							"\r",
+							"console.log(\"value of the new variables is:\",value2)\r",
+							"\r",
+							"let value3=pm.globals.get(\"testing\")\r",
+							"\r",
+							"console.log(\"global variables is\",value3)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/users?page=2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://reqres.in/api/users?page=2 Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"console.log(pm.variables.get(\"url\"))\r",
+							"\r",
+							"console.log(pm.globals.get(\"testing\"))\r",
+							"\r",
+							"console.log(pm.environment.get(\"email\"))"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/users/2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "https://reqres.in/api",
+			"type": "string"
+		}
+	]
+}

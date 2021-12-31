@@ -1,0 +1,69 @@
+{
+	"info": {
+		"_postman_id": "61b9beda-0abf-4bd8-90bf-0687c8a5a69e",
+		"name": "postman debug",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://reqres.in/api/users",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "content-type",
+						"value": "application/javascript",
+						"type": "string"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"morpheus\",\r\n    \"job\": \"leader\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/users",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "https://reqres.in",
+			"type": "string"
+		}
+	]
+}

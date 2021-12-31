@@ -1,0 +1,130 @@
+{
+	"info": {
+		"_postman_id": "93ef0474-1789-410d-843c-1890d12cd1f8",
+		"name": "test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://run.mocky.io/v3/76d67ddb-23dc-4947-b29f-6dcb83aa6a43",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response=pm.response.json();\r",
+							"console.log(response[0].name)\r",
+							"\r",
+							"\r",
+							"pm.test(\"person is jane\",()=>{\r",
+							"pm.expect(response[0].name).to.eql(\"Jane\");\r",
+							"});\r",
+							"\r",
+							"console.log(response[0].name)\r",
+							"console.log(response[0].other.email)\r",
+							"console.log(response[0].other[\"social-media\"][0])\r",
+							"\r",
+							"pm.test(\"person age is\",()=>{\r",
+							"pm.expect(response[0].age).to.eql(29);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"person email is\",()=>{\r",
+							"    pm.expect(response[0].other.email).to.eql(\"jane@example.com\")\r",
+							"})\r",
+							"\r",
+							"pm.test(\"person social-media is Facebook\",()=>{\r",
+							"    pm.expect(response[0].other[\"social-media\"][0]).to.eql(\"Facebook\",)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"person is having Instagram , Facebook\",()=>{\r",
+							"    pm.expect(response[0].other[\"social-media\"]).to.include(\"Facebook\",\"Instagram\")\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://run.mocky.io/v3/76d67ddb-23dc-4947-b29f-6dcb83aa6a43",
+					"protocol": "https",
+					"host": [
+						"run",
+						"mocky",
+						"io"
+					],
+					"path": [
+						"v3",
+						"76d67ddb-23dc-4947-b29f-6dcb83aa6a43"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+					"protocol": "https",
+					"host": [
+						"schema",
+						"getpostman",
+						"com"
+					],
+					"path": [
+						"json",
+						"collection",
+						"v2.1.0",
+						"collection.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://run.mocky.io/v3/76d67ddb-23dc-4947-b29f-6dcb83aa6a43",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let respone=pm.response.json();\r",
+							"const person=respone.find(item=>item.name=='Jane');\r",
+							"console.log(person)\r",
+							"\r",
+							"pm.test(\"person name is jan\",()=>{\r",
+							"    pm.expect(person.name).to.eql(\"Jane\")\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://run.mocky.io/v3/76d67ddb-23dc-4947-b29f-6dcb83aa6a43",
+					"protocol": "https",
+					"host": [
+						"run",
+						"mocky",
+						"io"
+					],
+					"path": [
+						"v3",
+						"76d67ddb-23dc-4947-b29f-6dcb83aa6a43"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
